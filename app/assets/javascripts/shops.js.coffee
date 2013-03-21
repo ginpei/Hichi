@@ -38,7 +38,9 @@ jQuery ($) ->
     if targetId
       return
 
-    startMoving getPointData(event, true)
+    data = getPointData(event, true)
+    event.preventDefault() if data?.id and isEditMode()
+    startMoving data
 
   $map.on 'touchmove mousemove', (event) ->
     unless targetId
