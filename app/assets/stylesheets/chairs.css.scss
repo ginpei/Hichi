@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .chairs {
-  background-image: url("/hichi/images/map.png");
+  background-image: url("../images/map.png");
   height: 720px;
   margin: 0;
   padding: 0;
@@ -10,14 +10,14 @@
   width: 770px;
 }
 .chair {
-  background-image: url("/hichi/images/off.png");
+  background-image: url("../images/off.png");
   display: block;
   height: 60px;
   position: absolute;
   width: 60px;
 }
 .chair.active {
-  background-image: url("/hichi/images/on.png");
+  background-image: url("../images/on.png");
 }
 .edit-mode .chair {
   -webkit-animation: blink 1s alternate infinite;
