@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130321052948) do
+ActiveRecord::Schema.define(:version => 20130321055640) do
 
   create_table "chairs", :force => true do |t|
     t.integer  "shop_id",    :null => false
@@ -31,6 +31,6 @@ ActiveRecord::Schema.define(:version => 20130321052948) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "shops", ["screen_name"], :name => "index_shops_on_screen_name"
+  add_index "shops", ["screen_name"], :name => "index_shops_on_screen_name", :unique => true
 
 end
