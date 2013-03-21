@@ -22,6 +22,9 @@ jQuery ($) ->
         location.reload()
     })
 
+  isEditMode = ->
+    $body.hasClass('edit-mode')
+
   offset = $map.offset()
 
   $chair = null
@@ -49,6 +52,19 @@ jQuery ($) ->
 
     stopMoving event
 
+  $map.on 'click', '.chair', (event) ->
+    return if isEditMode()
+
+    id = getChairId(event)
+    return unless id
+
+    $chair = $(event.target).closest('.chair')
+    active = $chair.hasClass('active')
+    data = { chair: { status:(if active then 1 else 0) } }
+    updateChair id, data
+
+    $chair.toggleClass('active', !active)
+
   getPointData = (event, detail) ->
     if detail
       id = getChairId(event)
@@ -72,7 +88,7 @@ jQuery ($) ->
     id = $chair.data('id')
 
   startMoving = (data) ->
-    unless $body.hasClass('edit-mode') and data?.id
+    unless isEditMode() and data?.id
       return
 
     targetId = data.id
@@ -100,3 +116,8 @@ jQuery ($) ->
     $.ajax({ data, type, url })
 
     targetId = null
+
+  updateChair = (id, data) ->
+    url = $data.data('shop_chairs_path') + '/' + id
+    type = 'PUT'
+    $.ajax({ data, type, url })

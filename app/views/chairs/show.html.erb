@@ -1,1 +1,1 @@
-<li id="chair-<%= chair.id %>" class="chair" style="left:<%= chair.left %>px; top:<%= chair.top %>px" data-id="<%= chair.id %>">Chair #<%= chair.id %></li>
+<li id="chair-<%= chair.id %>" class="chair <%= 'active' if chair.status %>" style="left:<%= chair.left %>px; top:<%= chair.top %>px" data-id="<%= chair.id %>">Chair #<%= chair.status %></li>

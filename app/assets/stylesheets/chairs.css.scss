@@ -15,8 +15,9 @@
   height: 64px;
   position: absolute;
   width: 64px;
-
-  background-color: red;
+}
+.chair.active {
+  background-image: url("/hichi/images/on.png");
 }
 .edit-mode .chair {
   -webkit-animation: blink 1s alternate infinite;
