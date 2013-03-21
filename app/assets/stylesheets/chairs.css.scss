@@ -1,3 +1,20 @@
 // Place all the styles related to the chairs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.chairs {
+  background-image: url("/hichi/images/map.png");
+  height: 720px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 770px;
+}
+.chair {
+  background-image: url("/hichi/images/off.png");
+  display: block;
+  height: 64px;
+  position: absolute;
+  width: 64px;
+
+  background-color: red;
+}

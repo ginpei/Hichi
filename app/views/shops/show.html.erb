@@ -13,8 +13,10 @@
   <button id="create_chair">追加</button>
 </div>
 
-<ul>
-  <% @shop.chairs.each do |chair| %>
-    <%= render template: 'chairs/show', locals: { chair: chair } %>
-  <% end %>
-</ul>
+<div id="map">
+  <ul class="chairs">
+    <% @shop.chairs.each do |chair| %>
+      <%= render template: 'chairs/show', locals: { chair: chair } %>
+    <% end %>
+  </ul>
+</div>

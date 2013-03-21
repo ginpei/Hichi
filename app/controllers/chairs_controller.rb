@@ -54,8 +54,15 @@ class ChairsController < ApplicationController
   # PUT /chairs/1
   # PUT /chairs/1.json
   def update
-    @chair = Chair.find(params[:id])
+    @chair = @shop.chairs.find(params[:id])
 
+    if @chair.update_attributes(params[:chair])
+      render json: { p:params[:chair] }
+    else
+      render json: { failed:true }
+    end
+
+    return
     respond_to do |format|
       if @chair.update_attributes(params[:chair])
         format.html { redirect_to @chair, notice: 'Chair was successfully updated.' }

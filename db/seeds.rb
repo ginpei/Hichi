@@ -7,4 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 shop = Shop.create(screen_name:'tanemaki', name:'Tanemaki');
-shop.chairs.create();
+shop.chairs.create(left:100, top:100);
+shop.chairs.create(left:200, top:100);
+shop.chairs.create(left:300, top:100);
