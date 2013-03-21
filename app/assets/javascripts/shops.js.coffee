@@ -4,6 +4,12 @@
 
 jQuery ($) ->
   $data = $('#data')
+  $map = $('#map')
+  $body = $('body')
+
+  $('#edit_chairs').on 'click', (event) ->
+    $body.toggleClass('edit-mode')
+
   $('#create_chair').on 'click', (event) ->
     $('#num_of_chairs').text '…'
 
@@ -16,7 +22,6 @@ jQuery ($) ->
         location.reload()
     })
 
-  $map = $('#map')
   offset = $map.offset()
 
   $chair = null
@@ -67,7 +72,7 @@ jQuery ($) ->
     id = $chair.data('id')
 
   startMoving = (data) ->
-    unless data?.id
+    unless $body.hasClass('edit-mode') and data?.id
       return
 
     targetId = data.id
@@ -89,6 +94,7 @@ jQuery ($) ->
     position = $chair.position()
     data = { chair: { left:position.left, top:position.top } }
 
+    # TODO use $data
     url = $('#data').data('shop_chairs_path') + '/' + targetId
     type = 'PUT'
     $.ajax({ data, type, url })
