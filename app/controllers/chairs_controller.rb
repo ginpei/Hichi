@@ -1,4 +1,10 @@
 class ChairsController < ApplicationController
+  before_filter :load_shop
+
+  def load_shop
+    @shop = Shop.find_by_screen_name(params[:shop_id])
+  end
+
   # GET /chairs
   # GET /chairs.json
   def index
@@ -40,17 +46,9 @@ class ChairsController < ApplicationController
   # POST /chairs
   # POST /chairs.json
   def create
-    @chair = Chair.new(params[:chair])
+    @chair = @shop.chairs.create(params[:chair])
 
-    respond_to do |format|
-      if @chair.save
-        format.html { redirect_to @chair, notice: 'Chair was successfully created.' }
-        format.json { render json: @chair, status: :created, location: @chair }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @chair.errors, status: :unprocessable_entity }
-      end
-    end
+    render json: { size: @shop.chairs.all.size }
   end
 
   # PUT /chairs/1

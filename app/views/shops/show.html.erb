@@ -1,3 +1,6 @@
+<input id="data" type="hidden"
+  data-shop_chairs_path="<%= shop_chairs_path(@shop) %>"
+  />
 <p id="notice"><%= notice %></p>
 <h1><%= @shop.name %></h1>
 <%= link_to 'Edit', edit_shop_path(@shop) %> |
@@ -6,6 +9,12 @@
 <hr />
 
 <div class="manager">
-  席数: <%= @shop.chairs.all.size %>
+  席数: <span id="num_of_chairs"><%= @shop.chairs.all.size %></span>
   <button id="create_chair">追加</button>
 </div>
+
+<ul>
+  <% @shop.chairs.each do |chair| %>
+    <%= render template: 'chairs/show', locals: { chair: chair } %>
+  <% end %>
+</ul>
