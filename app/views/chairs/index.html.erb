@@ -1,0 +1,29 @@
+<h1>Listing chairs</h1>
+
+<table>
+  <tr>
+    <th>Shop</th>
+    <th>Left</th>
+    <th>Top</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @chairs.each do |chair| %>
+  <tr>
+    <td><%= chair.shop %></td>
+    <td><%= chair.left %></td>
+    <td><%= chair.top %></td>
+    <td><%= chair.status %></td>
+    <td><%= link_to 'Show', chair %></td>
+    <td><%= link_to 'Edit', edit_chair_path(chair) %></td>
+    <td><%= link_to 'Destroy', chair, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Chair', new_chair_path %>

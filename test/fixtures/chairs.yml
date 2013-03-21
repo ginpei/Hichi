@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  shop: 
+  left: 1
+  top: 1
+  status: 1
+
+two:
+  shop: 
+  left: 1
+  top: 1
+  status: 1

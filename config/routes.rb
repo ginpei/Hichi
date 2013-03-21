@@ -1,5 +1,7 @@
 Hichi::Application.routes.draw do
-  resources :shops
+  resources :shops do
+    resources :chairs
+  end
 
 
   # The priority is based upon order of creation:
